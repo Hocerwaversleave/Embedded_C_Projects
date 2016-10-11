@@ -112,18 +112,18 @@ iocon(void){
 	TCCR0B = _BV(CS00);
 
 	
-	//Alles für Timer4
-	//Für Motor Left und Right:
+	//Alles fÃ¼r Timer4
+	//FÃ¼r Motor Left und Right:
 	TCCR4C = _BV(COM4D1) | _BV(COM4B1S) | _BV(PWM4D);
 	TCCR4D = _BV(WGM40);//Phase and Frequency Correct PWM
-	//Für Motor Right:
+	//FÃ¼r Motor Right:
 	TCCR4A |= _BV(PWM4B);
 	
 	//PD7 aka Motor_Left und PB6 aka Motor_Right als Output deklariern.
 	DDRD = _BV(DDD7);
 	DDRB = _BV(DDB6);
 	
-	//Preset für Timer4 Compare and Count Register:
+	//Preset fÃ¼r Timer4 Compare and Count Register:
 	TCCR4E = _BV(TLOCK4);
 	// 10-bit operation
 	TC4H = 0x03;
